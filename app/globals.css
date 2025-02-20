@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.font-pacifico {
+  font-family: var(--font-pacifico);
+}
+
+.dancing-figure {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.figure {
+  width: 50px;
+  height: 100px;
+  position: relative;
+  animation: dance 1s infinite alternate;
+}
+
+.head {
+  width: 30px;
+  height: 30px;
+  background-color: #ffd700;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
+.body {
+  width: 30px;
+  height: 40px;
+  background-color: #ff6347;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+.arm {
+  width: 10px;
+  height: 30px;
+  background-color: #ffd700;
+  position: absolute;
+  top: 35px;
+}
+
+.arm.left {
+  left: 0;
+  animation: wave-left 0.5s infinite alternate;
+}
+
+.arm.right {
+  right: 0;
+  animation: wave-right 0.5s infinite alternate;
+}
+
+.leg {
+  width: 10px;
+  height: 30px;
+  background-color: #4169e1;
+  position: absolute;
+  bottom: 0;
+}
+
+.leg.left {
+  left: 10px;
+  animation: kick-left 0.5s infinite alternate;
+}
+
+.leg.right {
+  right: 10px;
+  animation: kick-right 0.5s infinite alternate;
+}
+
+@keyframes dance {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wave-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes wave-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes kick-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes kick-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
